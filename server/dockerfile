@@ -23,4 +23,4 @@ ENV NODE_ENV production
 
 # Specify the command to run your app
 # (change "server.js" to whatever file runs your app)
-CMD ["node", "server.js"]
+CMD ["node", "api.js"]
