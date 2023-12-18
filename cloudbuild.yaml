@@ -4,28 +4,36 @@ options:
   logging: GCS_ONLY
 
 steps:
-  # Backend Deployment
+  # Step to build the container image
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-t",
+        "gcr.io/ai-chatbot-training/a-ware-demo-server:latest",
+        ".",
+      ]
+    # Replace PROJECT_ID with your GCP project ID. $COMMIT_SHA is an environment variable for commit hash
+
+  # Push the image to Google Container Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/ai-chatbot-training/a-ware-demo-server:latest"]
+
+  # Deploy the image to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ["app", "deploy", "server/app.yaml"]
-
-  # Frontend Build
-  - name: "node:18"
-    entrypoint: "npm"
-    args: ["install"]
-    dir: "client"
-  - name: "node:18"
-    entrypoint: "npm"
-    args: ["run", "build"]
-    dir: "client"
-
-  # Enable Firebase Experiments
-  - name: "gcr.io/ai-chatbot-training/firebase-tools"
-    args: ["experiments:enable", "webframeworks"]
-    dir: "client"
-
-  # Frontend Deploy to Firebase Hosting
-  - name: "gcr.io/ai-chatbot-training/firebase-tools"
-    args: ["deploy", "--only", "hosting", "--project", "ai-chatbot-training"]
-    dir: "client"
+    args:
+      [
+        "run",
+        "deploy",
+        "a-ware-demo-server",
+        "--image",
+        "gcr.io/Pai-chatbot-training/a-ware-demo-server:latest",
+        "--region",
+        "us-central1",
+        "--allow-unauthenticated",
+        "--service-account",
+        "ai-chatbot-training@appspot.gserviceaccount.com",
+      ]
+    # Replace YOUR_REGION with the region for your Cloud Run service
 
 timeout: "1600s"
