@@ -19,9 +19,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>
-          Admash - Material Design React Next Admin Dashboard Template
-        </title>
+        <title>A-Ware Demo QR Scanner</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
