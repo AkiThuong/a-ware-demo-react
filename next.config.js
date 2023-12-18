@@ -1,20 +1,21 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
+  output: "export",
   reactStrictMode: true,
   trailingSlash: true,
   eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
   optimizeFonts: false,
-  i18n: {
-    locales: ['en', 'ar'],
-    defaultLocale: 'en',
-  }
-}
+  // If your repository name is 'reponame', adjust the basePath and assetPrefix.
+  basePath: isProd ? "/a-ware-demo-react" : "",
+  assetPrefix: isProd ? "/a-ware-demo-react" : "",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
+
