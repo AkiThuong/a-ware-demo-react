@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import styles from "@/components/_App/ControlPanelModal/DarkAndLightMode.module.css";
 
 const OnlyTopNavbarDark = () => {
@@ -20,15 +20,18 @@ const OnlyTopNavbarDark = () => {
 
   useEffect(() => {
     // Update the user's preference in local storage
-    localStorage.setItem("topNavbarDarkTheme", isDarkMode ? "TopNavbarDark" : "light");
+    localStorage.setItem(
+      "topNavbarDarkTheme",
+      isDarkMode ? "TopNavbarDark" : "light"
+    );
 
     // Update the class on the <html> element to apply the selected mode
     const htmlElement = document.querySelector(".topNavbarDark");
-    if (isDarkMode) {
-      htmlElement.classList.add("dark");
-    } else {
-      htmlElement.classList.remove("dark");
-    }
+    // if (isDarkMode) {
+    //   htmlElement.classList.add("dark");
+    // } else {
+    //   // htmlElement.classList.remove("dark");
+    // }
   }, [isDarkMode]);
 
   return (
@@ -36,11 +39,11 @@ const OnlyTopNavbarDark = () => {
       <div className={styles.darkModeBox}>
         <h3>Only Top Navbar Dark/Light Mode</h3>
 
-        <Button 
-          onClick={handleToggle} 
+        <Button
+          onClick={handleToggle}
           variant="contained"
           sx={{
-            textTransform: 'capitalize'
+            textTransform: "capitalize",
           }}
           className="whiteColor"
         >
@@ -52,3 +55,4 @@ const OnlyTopNavbarDark = () => {
 };
 
 export default OnlyTopNavbarDark;
+

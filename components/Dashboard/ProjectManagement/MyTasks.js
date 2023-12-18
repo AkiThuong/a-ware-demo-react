@@ -18,8 +18,8 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import Tooltip from "@mui/material/Tooltip";
-import Checkbox from '@mui/material/Checkbox';
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+import Checkbox from "@mui/material/Checkbox";
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 function MyTask(props) {
   const theme = useTheme();
@@ -249,8 +249,8 @@ const MyTasks = () => {
             boxShadow: "none",
           }}
         >
-          <Table 
-            sx={{ minWidth: 500 }} 
+          <Table
+            sx={{ minWidth: 500 }}
             aria-label="custom pagination table"
             className="dark-table"
           >
@@ -400,3 +400,4 @@ const MyTasks = () => {
 };
 
 export default MyTasks;
+

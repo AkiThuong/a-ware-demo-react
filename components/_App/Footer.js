@@ -10,21 +10,20 @@ const Footer = () => {
           p: "25px",
           borderRadius: "10px 10px 0 0",
           textAlign: "center",
-          mt: "15px"
+          mt: "15px",
         }}
         className="footer"
       >
         <Box>
           <Typography>
-            Copyright  {' '}
-            <strong>Admash</strong> is Proudly Owned by {' '}
+            Copyright <strong>A-Ware Demo</strong> is Proudly Owned by{" "}
             <Link
-              href="https://envytheme.com/"
-              target="_blank" 
+              href="https://gamemate.ai/"
+              target="_blank"
               underline="none"
               rel="noreferrer"
             >
-              EnvyTheme
+              A-Ware
             </Link>
           </Typography>
         </Box>
@@ -34,3 +33,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

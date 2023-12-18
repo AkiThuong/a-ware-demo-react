@@ -10,7 +10,7 @@ import ControlPanelModal from "./ControlPanelModal";
 const Layout = ({ children }) => {
   const router = useRouter();
 
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
 
   const toogleActive = () => {
     setActive(!active);
@@ -35,29 +35,32 @@ const Layout = ({ children }) => {
           router.pathname === "/authentication/logout"
         ) && (
           <>
-            <TopNavbar toogleActive={toogleActive} />
+            {/* <TopNavbar toogleActive={toogleActive} /> */}
 
-            <LeftSidebar toogleActive={toogleActive} />
+            {/* <LeftSidebar toogleActive={toogleActive} /> */}
           </>
         )}
 
         <div className="main-content">
           {children}
 
-          {!(
-            router.pathname === "/authentication/sign-in" ||
-            router.pathname === "/authentication/sign-up" ||
-            router.pathname === "/authentication/forgot-password" ||
-            router.pathname === "/authentication/lock-screen" ||
-            router.pathname === "/authentication/confirm-mail" ||
-            router.pathname === "/authentication/logout"
-          ) && <Footer />}
+          {
+            !(
+              router.pathname === "/authentication/sign-in" ||
+              router.pathname === "/authentication/sign-up" ||
+              router.pathname === "/authentication/forgot-password" ||
+              router.pathname === "/authentication/lock-screen" ||
+              router.pathname === "/authentication/confirm-mail" ||
+              router.pathname === "/authentication/logout"
+            )
+            // && <Footer />
+          }
         </div>
       </div>
-            
+
       {/* ScrollToTop */}
       <ScrollToTop />
-      
+
       {!(
         router.pathname === "/authentication/sign-in" ||
         router.pathname === "/authentication/sign-up" ||
@@ -65,11 +68,10 @@ const Layout = ({ children }) => {
         router.pathname === "/authentication/lock-screen" ||
         router.pathname === "/authentication/confirm-mail" ||
         router.pathname === "/authentication/logout"
-      ) &&
-        <ControlPanelModal />
-      }
+      ) && <ControlPanelModal />}
     </>
   );
 };
 
 export default Layout;
+

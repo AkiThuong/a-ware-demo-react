@@ -21,16 +21,17 @@ const OnlyLeftSidebarDarkMode = () => {
   useEffect(() => {
     // Update the user's preference in local storage
     localStorage.setItem(
-      "leftSidebarTheme", isDarkMode ? "leftSidebarDark" : "light"
+      "leftSidebarTheme",
+      isDarkMode ? "leftSidebarDark" : "light"
     );
 
     // Update the class on the <leftSidebarDark> element to apply the selected mode
     const htmlElement = document.querySelector(".leftSidebarDark");
-    if (isDarkMode) {
-      htmlElement.classList.add("dark");
-    } else {
-      htmlElement.classList.remove("dark");
-    }
+    // if (isDarkMode) {
+    //   // htmlElement.classList.add("dark");
+    // } else {
+    //   // htmlElement.classList.remove("dark");
+    // }
   }, [isDarkMode]);
 
   return (
@@ -54,3 +55,4 @@ const OnlyLeftSidebarDarkMode = () => {
 };
 
 export default OnlyLeftSidebarDarkMode;
+

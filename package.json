@@ -36,6 +36,7 @@
     "react-chartjs-2": "^5.0.1",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
+    "react-qr-scanner": "^1.0.0-alpha.11",
     "react-router-dom": "^6.4.3",
     "react-simple-maps": "^3.0.0",
     "react-tabs": "^6.0.0",
