@@ -23,4 +23,7 @@ ENV NODE_ENV production
 
 # Specify the command to run your app
 # (change "server.js" to whatever file runs your app)
+
+EXPOSE 8080
+
 CMD ["node", "api.js"]

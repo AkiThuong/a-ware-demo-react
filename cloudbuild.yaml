@@ -4,18 +4,19 @@ options:
   logging: GCS_ONLY
 
 steps:
-  - name: "gcr.io/cloud-builders/gcloud"
-    entrypoint: "bash"
+  # Step to build the container image
+  - name: "gcr.io/cloud-builders/docker"
     args:
-      - "-c"
-      - |
-        mkdir -p /workspace/server && \
-  # Building Docker Image
-  - name: "gcr.io/kaniko-project/executor:latest"
-    args:
-      - "--dockerfile=Dockerfile"
-      - "--context=dir://."
-      - "--destination=gcr.io/ai-chatbot-training/a-ware-demo-server:latest"
+      [
+        "build",
+        "-t",
+        "gcr.io/ai-chatbot-training/a-ware-demo-server:latest",
+        "./server",
+      ]
+
+  # Push the image to Google Container Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/ai-chatbot-training/a-ware-demo-server:latest"]
 
   # Deploy the image to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
@@ -28,10 +29,10 @@ steps:
         "gcr.io/ai-chatbot-training/a-ware-demo-server:latest",
         "--region",
         "us-central1",
-        "--platform",
-        "managed",
+        "--allow-unauthenticated",
         "--service-account",
         "ai-chatbot-training@appspot.gserviceaccount.com",
       ]
+    # Replace YOUR_REGION with the region for your Cloud Run service
 
 timeout: "1600s"
