@@ -6,6 +6,6 @@ options:
 steps:
   # Backend Deployment
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ["app", "deploy", "server/app.yaml", "a-ware-demo-api"]
+    args: ["app", "deploy", "server/app.yaml"]
 
 timeout: "1600s"
