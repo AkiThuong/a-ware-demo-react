@@ -4,19 +4,12 @@ options:
   logging: GCS_ONLY
 
 steps:
-  # Step to build the container image
-  - name: "gcr.io/cloud-builders/docker"
+  # Building Docker Image
+  - name: "gcr.io/kaniko-project/executor:latest"
     args:
-      [
-        "build",
-        "-t",
-        "gcr.io/ai-chatbot-training/a-ware-demo-server:latest",
-        "./server",
-      ]
-
-  # Push the image to Google Container Registry
-  - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/ai-chatbot-training/a-ware-demo-server:latest"]
+      - "--dockerfile=Dockerfile"
+      - "--context=dir://."
+      - "--destination=gcr.io/ai-chatbot-training/a-ware-demo-server:latest"
 
   # Deploy the image to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
