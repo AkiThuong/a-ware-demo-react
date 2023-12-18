@@ -215,15 +215,7 @@ app.post("/api/chat", async (req, res) => {
   const userInput = `${Gender}\n${DoB} (DD/MM/YYYY)\n${Q1}\n${Q2}\n${Q3}\n${Q4}`;
 
   const messages = [];
-  const rowDataFirst = [
-    new Date().toISOString(),
-    Gender,
-    DoB,
-    Q1,
-    Q2,
-    Q3,
-    Q4,
-  ];
+  const rowDataFirst = [new Date().toISOString(), Gender, DoB, Q1, Q2, Q3, Q4];
   await saveToGoogleSheetsFirst(rowDataFirst);
   messages.push({ role: "system", content: promptValue });
   messages.push({ role: "user", content: userInput });
@@ -480,14 +472,8 @@ async function loadChartData(spreadsheetId) {
   }
 }
 
-app.get("/chart-data", async (req, res) => {
-  try {
-    const data = await loadChartData(sheetID);
-    res.json(data);
-  } catch (error) {
-    console.error("Error occurred while processing request: ", error);
-    res.status(500).send("Error occurred while processing request"); // respond with a 500 error
-  }
+app.get("/hello", async (req, res) => {
+  res.status(200).json({ message: "Hello from Next.js!" });
 });
 
 const port = process.env.PORT || 3000;
