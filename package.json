@@ -1,0 +1,48 @@
+{
+  "name": "admash",
+  "version": "1.6.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.10.5",
+    "@fullcalendar/core": "^6.0.2",
+    "@fullcalendar/daygrid": "^6.0.2",
+    "@fullcalendar/react": "^6.0.2",
+    "@mantine/core": "^5.10.5",
+    "@mantine/hooks": "^5.10.5",
+    "@mantine/rte": "^5.10.5",
+    "@mui/base": "^5.0.0-beta.10",
+    "@mui/icons-material": "^5.10.15",
+    "@mui/lab": "^5.0.0-alpha.115",
+    "@mui/material": "^5.11.4",
+    "@mui/x-data-grid": "^5.17.17",
+    "@mui/x-date-pickers": "^5.0.12",
+    "@ramonak/react-progress-bar": "^5.0.3",
+    "apexcharts": "^3.36.3",
+    "chart.js": "^4.3.0",
+    "dayjs": "^1.11.7",
+    "eslint": "8.28.0",
+    "eslint-config-next": "13.0.5",
+    "next": "^13.3.0",
+    "notistack": "^2.0.8",
+    "react": "^18.2.0",
+    "react-apexcharts": "^1.4.0",
+    "react-chartjs-2": "^5.0.1",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-router-dom": "^6.4.3",
+    "react-simple-maps": "^3.0.0",
+    "react-tabs": "^6.0.0",
+    "recharts": "^2.2.0",
+    "swiper": "^8.4.5"
+  },
+  "devDependencies": {
+    "sass": "^1.57.1"
+  }
+}

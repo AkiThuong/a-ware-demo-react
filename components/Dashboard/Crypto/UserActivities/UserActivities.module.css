@@ -1,0 +1,46 @@
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list li {
+  border-bottom: 1px solid #F7FAFF;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+}
+.list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.list li .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list li .content i {
+  margin: 0 10px 0 0;
+  line-height: 1;
+  font-size: 30px;
+}
+.list li .content h5 {
+  margin: 0; 
+  font-size: 20px;
+}
+.list li .content span {
+  margin: 0;
+}
+
+
+/* For dark mode */
+[class="dark"] .list li {
+  border-bottom: 1px solid var(--borderColor);
+}
+[class="dark"] .list li:last-child {
+  border-bottom: none;
+}

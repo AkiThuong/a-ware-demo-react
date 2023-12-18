@@ -1,0 +1,36 @@
+.welcomeBox {
+  background: #757FEF;
+  border-radius: 10px;
+  padding: 40px 20px;
+  position: relative;
+  margin-bottom: 15px;
+}
+.welcomeContent {
+  max-width: 300px;
+  position: relative;
+  z-index: 1;
+}
+.welcomeBox h1 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+}
+.welcomeBox p {
+  margin: 0;
+  font-size: 14px;
+  color: #EDEFF5;
+}
+.welcomeBox img {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* For dark mode */
+[class="dark"] .welcomeBox {
+  background-color: var(--cardBg);
+}
+[class="dark"] .welcomeContent {
+  background: #161515;
+}

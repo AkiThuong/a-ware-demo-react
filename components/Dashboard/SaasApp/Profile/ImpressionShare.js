@@ -1,0 +1,75 @@
+import React, { Component } from "react";
+import dynamic from "next/dynamic";
+const Chart = dynamic(() => import("react-apexcharts"), {
+  ssr: false,
+});
+import styles from "@/components/Dashboard/SaasApp/Profile/ImpressionShare.module.css";
+
+class ImpressionShare extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      series: [45],
+      options: {
+        chart: {
+          type: "radialBar",
+          offsetY: -20,
+          sparkline: {
+            enabled: true,
+          },
+        },
+        plotOptions: {
+          radialBar: {
+            startAngle: -110,
+            endAngle: 110,
+            track: {
+              background: "#e7e7e7",
+              strokeWidth: "90%",
+              margin: 5,
+            },
+            dataLabels: {
+              name: {
+                show: false,
+              },
+              value: {
+                offsetY: 1,
+                fontSize: "15px",
+                fontWeight: "600",
+                color: "#5B5B98",
+              },
+            },
+          },
+        },
+        grid: {
+          padding: {
+            top: -10,
+          },
+        },
+        fill: {
+          colors: ["#2DB6F5"],
+        },
+        labels: ["Average Results"],
+      },
+    };
+  }
+
+  render() {
+    return (
+      <>
+        <div className={styles.chartBox}>
+          <Chart
+            options={this.state.options}
+            series={this.state.series}
+            type="radialBar"
+            height={150}
+          />
+          <p>Excellent</p>
+          <h3>Impression Share</h3>
+        </div>
+      </>
+    );
+  }
+}
+
+export default ImpressionShare;

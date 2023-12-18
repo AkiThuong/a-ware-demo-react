@@ -1,0 +1,24 @@
+.marketGraphList {
+  text-align: end;
+}
+.marketGraphList p {
+  margin-right: 20px;
+}
+.marketGraphList p:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 599px) {
+  .marketGraphList {
+    text-align: left;
+  }
+}
+
+/* For RTL Style */
+[dir="rtl"] .marketGraphList p {
+  margin-right: 0;
+  margin-left: 20px;
+}
+[dir="rtl"] .marketGraphList p:last-child {
+  margin-left: 0;
+}

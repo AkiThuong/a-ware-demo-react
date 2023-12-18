@@ -1,0 +1,74 @@
+import React, { Component } from "react";
+import dynamic from "next/dynamic";
+const Chart = dynamic(() => import("react-apexcharts"), {
+  ssr: false,
+});
+import styles from "@/components/Dashboard/Analytics/ImpressionGoalConversions/ImpressionShare.module.css"
+
+class GoalCompletions extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      series: [68],
+      options: {
+        chart: {
+          type: "radialBar",
+          offsetY: -20,
+          sparkline: {
+            enabled: true,
+          },
+        },
+        plotOptions: {
+          radialBar: {
+            startAngle: -110,
+            endAngle: 110,
+            track: {
+              background: "#e7e7e7",
+              strokeWidth: "90%",
+              margin: 5,
+            },
+            dataLabels: {
+              name: {
+                show: false,
+              },
+              value: {
+                offsetY: 1,
+                fontSize: "15px",
+                fontWeight: "600",
+                color: '#5B5B98'
+              },
+            },
+          },
+        },
+        grid: {
+          padding: {
+            top: -10,
+          },
+        },
+        fill: {
+          colors: ["#757FEF"],
+        },
+        labels: ["Average Results"],
+      },
+    };
+  }
+
+  render() {
+    return (
+      <>
+        <div className={styles.chartBox}>
+          <Chart
+            options={this.state.options}
+            series={this.state.series}
+            type="radialBar"
+            height={100}
+          />
+          <h3>Goal Completions</h3>
+        </div>
+      </>
+    );
+  }
+}
+
+export default GoalCompletions;

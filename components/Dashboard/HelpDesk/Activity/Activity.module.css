@@ -1,0 +1,54 @@
+.timelineList .tList {
+  position: relative; 
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #F7FAFF;
+}
+.timelineList .tList:last-child {
+  border: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.timelineList .tList .content {
+  display: flex;  
+}
+.timelineList .tList .content img {
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+}
+.timelineList .tList .content h5 {
+  margin: 0 0 3px;
+  color: #260944;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--bodyFontFamily) !important;
+}
+.timelineList .tList .content .text {
+  margin: 0 0 5px;
+}
+.timelineList .tList .date {
+  color: #A9A9C8;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* For RTL Style */
+[dir="rtl"] .timelineList .tList {
+  padding-right: 20px;
+}
+[dir="rtl"] .timelineList .tList .content img {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+/* For dark mode */
+[class="dark"] .timelineList .tList {
+  border-bottom: 1px solid var(--borderColor);
+}
+[class="dark"] .timelineList .tList:last-child {
+  border-bottom: none;
+}
+[class="dark"] .timelineList .tList .content h5 {
+  color: var(--darkBodyTextColor) !important;
+}
