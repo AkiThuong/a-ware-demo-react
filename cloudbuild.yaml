@@ -11,7 +11,7 @@ steps:
         "build",
         "-t",
         "gcr.io/ai-chatbot-training/a-ware-demo-server:latest",
-        ".",
+        "./server",
       ]
     # Replace PROJECT_ID with your GCP project ID. $COMMIT_SHA is an environment variable for commit hash
 
