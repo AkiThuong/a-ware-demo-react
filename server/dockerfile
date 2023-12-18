@@ -1,19 +1,14 @@
 # Use the official lightweight Node.js image.
-# https://hub.docker.com/_/node
 FROM node:18-slim
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json (or yarn.lock) to the working directory
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
-# If you're using yarn, you might want to copy yarn.lock as well
-# COPY package.json yarn.lock ./
 
 # Install production dependencies.
 RUN npm install --only=production
-# If you're using yarn, use this instead:
-# RUN yarn install --production
 
 # Copy the rest of your application's code
 COPY . .
@@ -21,9 +16,7 @@ COPY . .
 # Set the environment to production
 ENV NODE_ENV production
 
-# Specify the command to run your app
-# (change "server.js" to whatever file runs your app)
-
+# Your app must listen on the port defined by the PORT environment variable.
 EXPOSE 8080
 
 CMD ["node", "api.js"]

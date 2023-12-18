@@ -21,18 +21,15 @@ steps:
   # Deploy the image to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
     args:
-      [
-        "run",
-        "deploy",
-        "a-ware-demo-server",
-        "--image",
-        "gcr.io/ai-chatbot-training/a-ware-demo-server:latest",
-        "--region",
-        "us-central1",
-        "--allow-unauthenticated",
-        "--service-account",
-        "ai-chatbot-training@appspot.gserviceaccount.com",
-      ]
-    # Replace YOUR_REGION with the region for your Cloud Run service
+      - "run"
+      - "deploy"
+      - "a-ware-demo-server"
+      - "--image"
+      - "gcr.io/ai-chatbot-training/a-ware-demo-server:latest"
+      - "--region"
+      - "us-central1"
+      - "--allow-unauthenticated"
+      - "--service-account"
+      - "ai-chatbot-training@appspot.gserviceaccount.com"
 
 timeout: "1600s"
