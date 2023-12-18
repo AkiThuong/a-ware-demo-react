@@ -4,6 +4,12 @@ options:
   logging: GCS_ONLY
 
 steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        mkdir -p /workspace/server && \
   # Building Docker Image
   - name: "gcr.io/kaniko-project/executor:latest"
     args:
