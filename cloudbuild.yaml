@@ -4,36 +4,8 @@ options:
   logging: GCS_ONLY
 
 steps:
-  # Step to build the container image
-  - name: "gcr.io/cloud-builders/docker"
-    args:
-      [
-        "build",
-        "-t",
-        "gcr.io/ai-chatbot-training/a-ware-demo-server:latest",
-        "./server",
-      ]
-    # Replace PROJECT_ID with your GCP project ID. $COMMIT_SHA is an environment variable for commit hash
-
-  # Push the image to Google Container Registry
-  - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/ai-chatbot-training/a-ware-demo-server:latest"]
-
-  # Deploy the image to Cloud Run
+  # Backend Deployment
   - name: "gcr.io/cloud-builders/gcloud"
-    args:
-      [
-        "run",
-        "deploy",
-        "a-ware-demo-server",
-        "--image",
-        "gcr.io/ai-chatbot-training/a-ware-demo-server:latest",
-        "--region",
-        "us-central1",
-        "--allow-unauthenticated",
-        "--service-account",
-        "ai-chatbot-training@appspot.gserviceaccount.com",
-      ]
-    # Replace YOUR_REGION with the region for your Cloud Run service
+    args: ["app", "deploy", "server/app.yaml", "a-ware-demo-api"]
 
 timeout: "1600s"
