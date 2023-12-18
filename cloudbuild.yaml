@@ -1,0 +1,31 @@
+serviceAccount: "projects/ai-chatbot-training/serviceAccounts/ai-chatbot-training@appspot.gserviceaccount.com"
+logsBucket: "gs://ai-chatbot-training.appspot.com"
+options:
+  logging: GCS_ONLY
+
+steps:
+  # Backend Deployment
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["app", "deploy", "server/app.yaml"]
+
+  # Frontend Build
+  - name: "node:18"
+    entrypoint: "npm"
+    args: ["install"]
+    dir: "client"
+  - name: "node:18"
+    entrypoint: "npm"
+    args: ["run", "build"]
+    dir: "client"
+
+  # Enable Firebase Experiments
+  - name: "gcr.io/ai-chatbot-training/firebase-tools"
+    args: ["experiments:enable", "webframeworks"]
+    dir: "client"
+
+  # Frontend Deploy to Firebase Hosting
+  - name: "gcr.io/ai-chatbot-training/firebase-tools"
+    args: ["deploy", "--only", "hosting", "--project", "ai-chatbot-training"]
+    dir: "client"
+
+timeout: "1600s"
