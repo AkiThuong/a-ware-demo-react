@@ -27,7 +27,7 @@ steps:
         "deploy",
         "a-ware-demo-server",
         "--image",
-        "gcr.io/Pai-chatbot-training/a-ware-demo-server:latest",
+        "gcr.io/ai-chatbot-training/a-ware-demo-server:latest",
         "--region",
         "us-central1",
         "--allow-unauthenticated",
