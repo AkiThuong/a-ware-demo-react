@@ -194,7 +194,7 @@ const QRScannerCustom = () => {
           control={
             <Switch checked={isDarkMode} onChange={handleToggleDarkMode} />
           }
-          label={isDarkMode ? "Light Mode" : "Dark Mode"}
+          label={isDarkMode ? "Dark Mode" : "Light Mode"}
         />
       </FormGroup>
       <div style={{ position: "relative", maxWidth: "600px", height: "auto" }}>
