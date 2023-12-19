@@ -10,7 +10,6 @@ export default function ProjectManagement() {
         {" "}
         {/* Added horizontal padding */}
         <QRScanUI />
-        <QRResultList />
       </Grid>
     </Grid>
   );

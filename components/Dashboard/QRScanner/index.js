@@ -6,7 +6,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import QRScanner from "./QR-Scanner";
+import QRScannerNew from "./QR-Scanner-new";
 
 const QRScanUI = () => {
   const [cameraMode, setCameraMode] = React.useState(1); // Default to rear camera (1)
@@ -45,32 +45,9 @@ const QRScanUI = () => {
           >
             QR Code Scanner
           </Typography>
-          <Box>
-            <FormControl sx={{ minWidth: 120 }} size="small">
-              <InputLabel id="demo-select-small" sx={{ fontSize: "14px" }}>
-                Camera
-              </InputLabel>
-              <Select
-                labelId="demo-select-small"
-                id="demo-select-small"
-                value={cameraMode}
-                label="Select"
-                onChange={handleChange}
-                sx={{ fontSize: "14px" }}
-                className="select"
-              >
-                <MenuItem value={0} sx={{ fontSize: "14px" }}>
-                  Front Camera
-                </MenuItem>
-                <MenuItem value={1} sx={{ fontSize: "14px" }}>
-                  Back Camera
-                </MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
         </Box>
 
-        <QRScanner cameraMode={cameraMode} />
+        <QRScannerNew cameraMode={cameraMode} />
       </Card>
     </>
   );

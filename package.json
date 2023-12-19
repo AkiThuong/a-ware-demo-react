@@ -44,6 +44,7 @@
     "swiper": "^8.4.5"
   },
   "devDependencies": {
+    "html5-qrcode": "^2.3.8",
     "sass": "^1.57.1"
   }
 }
