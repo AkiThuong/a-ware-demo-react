@@ -213,7 +213,7 @@ const QRScannerCustom = () => {
             }}
           >
             <Image
-              src="/a-ware-demo-react/images/icons/check.gif"
+              src="./images/icons/check.gif"
               alt="Camera Disabled"
               layout="fill"
               objectFit="contain"
@@ -234,7 +234,7 @@ const QRScannerCustom = () => {
             }}
           >
             <Image
-              src="/a-ware-demo-react/images/logo/gamemateai-logo.png" // Path to your placeholder image
+              src="./images/logo/gamemateai-logo.png" // Path to your placeholder image
               alt="Camera Disabled"
               layout="fill"
               objectFit="contain"
