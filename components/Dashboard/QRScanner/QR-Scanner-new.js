@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
+
 import { Html5Qrcode } from "html5-qrcode";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
@@ -210,11 +212,11 @@ const QRScannerCustom = () => {
               zIndex: 20,
             }}
           >
-            {/* Overlay with animated GIF or component */}
-            <img
+            <Image
               src="/images/icons/check.gif"
-              alt="Scan Successful"
-              style={{ width: "50%" }}
+              alt="Camera Disabled"
+              layout="fill"
+              objectFit="contain"
             />
           </div>
         )}
@@ -231,10 +233,11 @@ const QRScannerCustom = () => {
               height: "300px",
             }}
           >
-            <img
+            <Image
               src="/images/logo/gamemateai-logo.png" // Path to your placeholder image
               alt="Camera Disabled"
-              style={{ maxWidth: "100%", maxHeight: "100%" }}
+              layout="fill"
+              objectFit="contain"
             />
           </div>
         )}
