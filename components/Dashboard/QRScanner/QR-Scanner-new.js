@@ -179,7 +179,7 @@ const QRScannerCustom = () => {
           control={
             <Switch checked={isScanning} onChange={handleToggleScanning} />
           }
-          label={isScanning ? "Turn on" : "Turn off"}
+          label={isScanning ? "Turn off" : "Turn on"}
         />
         <FormControlLabel
           control={
