@@ -59,14 +59,17 @@ const Layout = ({ children }) => {
       {/* ScrollToTop */}
       <ScrollToTop />
 
-      {!(
-        router.pathname === "/authentication/sign-in" ||
-        router.pathname === "/authentication/sign-up" ||
-        router.pathname === "/authentication/forgot-password" ||
-        router.pathname === "/authentication/lock-screen" ||
-        router.pathname === "/authentication/confirm-mail" ||
-        router.pathname === "/authentication/logout"
-      ) && <ControlPanelModal />}
+      {
+        !(
+          router.pathname === "/authentication/sign-in" ||
+          router.pathname === "/authentication/sign-up" ||
+          router.pathname === "/authentication/forgot-password" ||
+          router.pathname === "/authentication/lock-screen" ||
+          router.pathname === "/authentication/confirm-mail" ||
+          router.pathname === "/authentication/logout"
+        )
+        // && <ControlPanelModal />
+      }
     </>
   );
 };
