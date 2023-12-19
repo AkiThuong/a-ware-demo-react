@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
       </div>
 
       {/* ScrollToTop */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
 
       {
         !(

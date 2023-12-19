@@ -37,7 +37,7 @@ class QRScanner extends Component {
           result: resultData.result,
         });
         localStorage.setItem("scanData", JSON.stringify(resultData));
-
+        console.log("old Check: ", localStorage.getItem("scanData"));
         // Dispatch a custom event
         window.dispatchEvent(new Event("scanCompleted"));
       } else {

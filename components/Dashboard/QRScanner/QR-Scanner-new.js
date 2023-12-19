@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 import { Html5Qrcode } from "html5-qrcode";
@@ -27,9 +27,22 @@ const QRScannerCustom = () => {
   const [isCameraChanged, setIsCameraChanged] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [facingMode, setFacingMode] = useState("environment");
-  const [scanResults, setScanResults] = useState([]);
   const [showScanConfirmation, setShowScanConfirmation] = useState(false);
-  const pauseTimeoutRef = useState(null);
+  const pauseTimeoutRef = useRef(null);
+  const [scanResults, setScanResults] = useState([]);
+
+  useEffect(() => {
+    // Load stored results from localStorage
+    const storedResults = localStorage.getItem("scanResults");
+    if (storedResults) {
+      setScanResults(JSON.parse(storedResults));
+    }
+
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setIsDarkMode(storedTheme === "dark");
+    }
+  }, []);
 
   const theme = useTheme();
 
@@ -45,13 +58,12 @@ const QRScannerCustom = () => {
 
   const handleToggleDarkMode = (event) => {
     setIsDarkMode(event.target.checked);
-    // Implement logic to switch to dark/light mode
   };
 
   useEffect(() => {
     // Update the user's preference in local storage
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-
+    console.log("isDarkMode store", isDarkMode);
     // Update the class on the <html> element to apply the selected mode
     const htmlElement = document.querySelector("html");
     if (isDarkMode) {
@@ -104,8 +116,16 @@ const QRScannerCustom = () => {
       timestamp: new Date().toISOString(),
     };
 
-    setScanResults((prevResults) => [...prevResults, newResult]);
+    setScanResults((prevResults) => {
+      const updatedResults = [...prevResults, newResult].slice(-5); // Keep last 5 results
+      console.log("New Results: ", newResult);
+      console.log("Updated Scan Results: ", updatedResults);
+      localStorage.setItem("scanResults", JSON.stringify(updatedResults));
+      const checkResults = localStorage.getItem("scanResults");
+      console.log("Check Store Results: ", checkResults);
 
+      return updatedResults;
+    });
     // Pause the scanner
     let shouldPauseVideo = true;
     let showPausedBanner = true;
@@ -117,7 +137,6 @@ const QRScannerCustom = () => {
       qrCodeScanner.resume();
     }, 2000);
   };
-
   const changeCamera = () => {
     const newFacingMode = facingMode === "environment" ? "user" : "environment";
 
@@ -194,7 +213,7 @@ const QRScannerCustom = () => {
           control={
             <Switch checked={isDarkMode} onChange={handleToggleDarkMode} />
           }
-          label={isDarkMode ? "Dark Mode" : "Light Mode"}
+          label={isDarkMode ? "Light Mode" : "Dark Mode"}
         />
       </FormGroup>
       <div style={{ position: "relative", maxWidth: "600px", height: "auto" }}>
