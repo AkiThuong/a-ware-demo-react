@@ -1,8 +1,8 @@
 # QR Code Scanner
 
-| <img src="https://scanapp.org/assets/github_assets/pixel6pro-optimised.gif" width="180px" />
+| <img src="https://akithuong.github.io/a-ware-demo-react/images/icons/demo.gif" width="180px" />
 | :-: |
-| [View Demo](https://akithuong.github.io/a-ware-demo-react/images/icons/demo.gif)|
+| [View Demo](https://akithuong.github.io/a-ware-demo-react/)|
 
 ### Description -
 
