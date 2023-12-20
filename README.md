@@ -1,6 +1,6 @@
 # QR Code Scanner
 
-| <img src="https://akithuong.github.io/a-ware-demo-react/images/icons/demo.gif" width="180px" />
+| <img src="https://hackathon.gamemate.ai/img/gif/demo.gif" width="180px" />
 | :-: |
 | [View Demo](https://akithuong.github.io/a-ware-demo-react/)|
 
