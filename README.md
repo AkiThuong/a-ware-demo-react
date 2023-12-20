@@ -74,4 +74,5 @@ Code scanning is dependent on [Zxing-js](https://github.com/zxing-js/library) li
 
 The QR Code Scanner Library: https://github.com/mebjas/html5-qrcode
 
-The decoder used for the QR code reading is from Zxing-js https://github.com/zxing-js/library
+The decoder used for the QR code reading is from Zxing-js: https://github.com/zxing-js/library
+
