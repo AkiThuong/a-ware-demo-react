@@ -1,6 +1,6 @@
 # QR Code Scanner
 
-| <img src="https://https://github.com/AkiThuong/a-ware-demo-react/public/images/icons/check.gif" width="180px" />
+| <img src="https://github.com/AkiThuong/a-ware-demo-react/blob/main/public/images/icons/demo.gif" width="180px" />
 | :-: |
 | [View Demo](https://akithuong.github.io/a-ware-demo-react/)|
 
