@@ -1,6 +1,10 @@
 # QR Code Scanner
 
-### Description - [View Demo](https://akithuong.github.io/a-ware-demo-react/)
+| <img src="https://scanapp.org/assets/github_assets/pixel6pro-optimised.gif" width="180px" />
+| :-: |
+| [View Demo](https://akithuong.github.io/a-ware-demo-react/images/icons/demo.gif)|
+
+### Description -
 
 This is QR Code Scanner Demo Application with responsive support for both PC and Mobile Device.
 Key Feature:
